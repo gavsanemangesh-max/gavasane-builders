@@ -155,7 +155,7 @@ section#vip {
   }
 }
 section[aria-labelledby="completed-heading"] {
-  background: linear-gradient(180deg, #fdfcf9 0%, #fbfaf4 100%);
+  background: #ffffff; /* match Commercial section background */
   border-top: 1px solid rgba(42, 42, 42, 0.07);
   border-bottom: 1px solid rgba(42, 42, 42, 0.07);
 }
@@ -694,12 +694,17 @@ section[aria-labelledby="commercial-details-heading"] .commercial-details-rows {
   transform: scale(1.04);
 }
 
+/* Completed Projects page: subtle tone refinement for Riddhi Siddhi Park image only */
+.completed-projects-inner > article:nth-of-type(5) .completed-project-image img {
+  filter: saturate(0.9) contrast(0.95);
+}
+
 .completed-project-content {
   max-width: 460px;
 }
 
 .completed-project-index {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -707,9 +712,12 @@ section[aria-labelledby="commercial-details-heading"] .commercial-details-rows {
 }
 
 .completed-project-title {
-  margin: 0 0 4px;
+  margin: 0 0 12px;
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
 }
 
 .completed-project-location {
@@ -739,6 +747,69 @@ section[aria-labelledby="commercial-details-heading"] .commercial-details-rows {
   font-size: 15px;
   line-height: 1.6;
   color: var(--muted);
+}
+
+/* ========================= Land Development (Project 5 only) ========================= */
+.completed-project-title--serif {
+  font-family: var(--font-display);
+}
+
+.completed-project-land-spec {
+  margin-top: 10px;
+  display: grid;
+  gap: 12px;
+}
+
+.completed-project-land-spec-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  column-gap: 18px;
+  align-items: baseline;
+}
+
+.completed-project-land-spec-row--emph {
+  grid-template-columns: 160px 1fr;
+  margin-bottom: 16px;
+}
+
+.completed-project-land-spec-label {
+  font-size: 12px;
+  color: rgba(20, 26, 40, 0.58);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.completed-project-land-spec-value {
+  font-size: 14px;
+  color: rgba(20, 26, 40, 0.92);
+  font-weight: 500;
+}
+
+.completed-project-land-spec-row--emph .completed-project-land-spec-label {
+  color: rgba(20, 26, 40, 0.72);
+}
+
+.completed-project-land-spec-row--emph .completed-project-land-spec-value {
+  font-weight: 600;
+}
+
+.completed-project-land-spec-row--text {
+  grid-template-columns: 1fr;
+}
+
+.completed-project-land-spec-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.completed-project-land-spec-row--text + .completed-project-land-spec-row--text {
+  margin-top: 16px;
+}
+
+.completed-project-land-spec-divider {
+  margin: 10px 0 !important;
 }
 
 /* Completed Projects page — mobile single-column with image first (portrait only) */
@@ -796,6 +867,16 @@ section[aria-labelledby="commercial-details-heading"] .commercial-details-rows {
   .completed-project-divider {
     display: block;
     margin: 14px auto 14px;
+  }
+
+  /* Center land-development spec block */
+  .completed-project-land-spec {
+    text-align: center;
+  }
+
+  .completed-project-land-spec-row {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
   }
 }
 
@@ -1249,6 +1330,7 @@ header {
   .menu-btn {
     display: inline-flex;
     align-items: center;
+    color: #ffffff;
   }
 }
 
@@ -1814,7 +1896,9 @@ section[aria-labelledby="prestige-hero-heading"] .hero-slide {
 
 /* Elevate key gold CTAs on light backgrounds to match hero presence */
 #prestige .project-buttons .btn--gold,
-section[aria-labelledby="completed-heading"] .btn.btn--gold {
+section[aria-labelledby="completed-heading"] .btn.btn--gold,
+#vip .project-buttons .btn--gold,
+#plotting .project-buttons .btn--gold {
   /* Match hero `.btn--gold` values precisely */
   background: rgba(198, 167, 94, 0.52);
   border: 1px solid rgba(255, 255, 255, 0.72);
@@ -1838,7 +1922,9 @@ section[aria-labelledby="completed-heading"] .btn.btn--gold {
 }
 
 #prestige .project-buttons .btn--gold:hover,
-section[aria-labelledby="completed-heading"] .btn.btn--gold:hover {
+section[aria-labelledby="completed-heading"] .btn.btn--gold:hover,
+#vip .project-buttons .btn--gold:hover,
+#plotting .project-buttons .btn--gold:hover {
   background: rgba(198, 167, 94, 0.58);
   border-color: rgba(255, 255, 255, 0.82);
   box-shadow:
@@ -1847,7 +1933,9 @@ section[aria-labelledby="completed-heading"] .btn.btn--gold:hover {
 }
 
 #prestige .project-buttons .btn--gold::before,
-section[aria-labelledby="completed-heading"] .btn.btn--gold::before {
+section[aria-labelledby="completed-heading"] .btn.btn--gold::before,
+#vip .project-buttons .btn--gold::before,
+#plotting .project-buttons .btn--gold::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2274,6 +2362,11 @@ section[aria-labelledby="completed-heading"] .btn.btn--gold::before {
   will-change: transform;
 }
 
+/* Commercial spacing: add breathing room between image and structure text */
+#vip .project-structure {
+  margin-top: 36px;
+}
+
 .completed-card img {
   width: 100%;
   height: 100%;
@@ -2456,6 +2549,97 @@ section[aria-labelledby="completed-heading"] .btn.btn--gold::before {
 .project-buttons {
   text-align: center;
   margin-top: 20px;
+}
+
+/* ========================= Home: Plotting Development ========================= */
+#plotting {
+  background: #ffffff; /* match Commercial section background */
+}
+
+#plotting .project-image-wrapper--small.plotting-image-wrapper {
+  width: 78%;
+  margin: 6px auto 0;
+  max-width: 900px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#plotting .project-image-wrapper--small.plotting-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* very subtle, not dark: just enough for legible overlay text */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.05) 55%,
+    rgba(0, 0, 0, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+#plotting .project-image-wrapper--small.plotting-image-wrapper img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  position: relative;
+  z-index: 0;
+  transform-origin: center;
+  filter: blur(1px) saturate(1.02) brightness(1.02); /* very subtle */
+  animation: plottingImageZoom 12s ease-out forwards;
+}
+
+#plotting .plotting-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+#plotting .plotting-overlay-inner {
+  margin-top: -10px; /* slightly above center */
+}
+
+#plotting .plotting-overlay-title {
+  font-family: var(--font-display);
+  font-size: clamp(25px, 3.5vw, 40px); /* ~10–15% larger */
+  font-weight: 500;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.14);
+}
+
+#plotting .plotting-overlay-sub {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+#plotting .plotting-buttons {
+  margin-top: 32px;
+}
+
+@keyframes plottingImageZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.04); }
+}
+
+@media (max-width: 700px) {
+  #plotting .project-image-wrapper--small {
+    width: 100%;
+    margin: 12px auto 0;
+    max-width: none;
+  }
 }
 /* ========================= Gallery grid ========================= */
 .gallery {
@@ -3054,7 +3238,7 @@ section[aria-labelledby="completed-heading"] .btn.btn--gold::before {
 /* ========================= Page intro (about, etc.) ========================= */
 .about-section {
   padding: 96px 20px; /* reduce overly loose vertical rhythm */
-  background: #f8f8f8; /* keep your existing tone if different */
+  background: #ffffff; /* match Commercial section background */
 }
 
 @media (max-width: 700px) {

@@ -68,7 +68,7 @@
     if (!cards.length) return;
 
     var currentIndex = 0;
-    var intervalMs = 5000;
+    var intervalMs = 4000;
 
     function applyRoles() {
       var front = currentIndex;
@@ -124,7 +124,7 @@
     ];
 
     var currentIndex = 0;
-    var intervalMs = 5000;
+    var intervalMs = 4000;
 
     function applyRoles() {
       var front = currentIndex;
